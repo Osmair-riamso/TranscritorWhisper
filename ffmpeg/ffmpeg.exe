@@ -1,0 +1,12 @@
+import os
+import sys
+
+def get_ffmpeg_path():
+    if getattr(sys, 'frozen', False):
+        # Se for executável
+        base_path = sys._MEIPASS  # diretório temporário do PyInstaller
+    else:
+        # Durante desenvolvimento
+        base_path = os.path.dirname(__file__)
+
+    return os.path.join(base_path, 'ffmpeg', 'ffmpeg.exe')
